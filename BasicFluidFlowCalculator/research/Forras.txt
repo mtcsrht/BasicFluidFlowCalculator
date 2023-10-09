@@ -1,0 +1,21 @@
+﻿Az áramlás mennyiségét egy csőben a következő képlet segítségével számolhatod ki:
+
+Q = A * v
+
+Ahol:
+Q a folyadék mennyisége (kubikus egységekben, például liter vagy köbméter).
+A a cső keresztmetszetének területe (négyzetméterben).
+v az áramlás sebessége (másodpercben mért sebesség).
+
+Ezután, ha szeretnéd kiszámolni, hogy mekkora mennyiségű folyadék töltődik ki egy adott idő alatt, akkor a következő képletet használhatod:
+
+Q = V / t
+
+Ahol:
+Q a kifolyó folyadék mennyisége (szintén kubikus egységekben, például liter vagy köbméter).
+V a folyadék mennyisége (amit kiszámoltál az előző képlet segítségével).
+t az idő (másodpercekben mért idő).
+
+Ezenkívül fontos megjegyezni, hogy a cső átmérőjétől, az áramlás sebességétől és az áramlás időtartamától függően számos más tényező is befolyásolhatja az áramlás mennyiségét,
+például a folyadék viszkozitása és a cső falának surlódása. Az egyszerűsített képletek általában ideális körülményeket feltételeznek, így a valóságban a pontos méréshez 
+további tényezőket is figyelembe kell venni.
