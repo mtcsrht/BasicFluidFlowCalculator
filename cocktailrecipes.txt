@@ -15,3 +15,8 @@ Mojito:10 fresh mint leaves
 
 
 Abstract base class Fluid -> ebből származtatunk összetevőket itt lesz a folyadékoknak a vizskozitása stb...
+
+
+User dokumentacio
+hulye biztos, screenshotokkal
+inline dokumentacio
