@@ -27,6 +27,8 @@ namespace BasicFluidFlowCalculatorCLI
             Console.WriteLine(result);
             */
 
+
+
             Water water = new Water();
             //30cm-es cső 1.5-ös átmérő 0.8 Pa nyomáskülönbség víz viszkozitás
             //Q = (π * ΔP * r^4) / (8 * η * L)
