@@ -1,0 +1,17 @@
+Whiskey cola: Whiskey 60ml; Coca Cola 170ml;
+Long Island Tea: 3/4 ounce vodka; 3/4 ounce white rum; 3/4 ounce silver tequila; 3/4ounce gin; 3/4ounce triple sec; 3/4 ounce simply syrup; 3/4 ounce lemon juice;Cola t
+op
+Mojito:10 fresh mint leaves
+
+½ medium lime, cut into 3 wedges, divided
+
+2 tablespoons white sugar, or to taste
+
+1 cup ice cubes, or as needed
+
+1 ½ fluid ounces white rum
+
+½ cup club soda, or as needed
+
+
+Abstract base class Fluid -> ebből származtatunk összetevőket itt lesz a folyadékoknak a vizskozitása stb...
