@@ -19,4 +19,4 @@ Abstract base class Fluid -> ebből származtatunk összetevőket itt lesz a fol
 
 User dokumentacio
 hulye biztos, screenshotokkal
-inline dokumentacio
+inline dokumentacio summary-vel
