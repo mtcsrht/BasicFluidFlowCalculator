@@ -22,7 +22,7 @@ namespace BasicFluidFlowCalculator
         static double pressureDifference;
         static double fluidViscosity;
         static double cur;
-        static int elapsedSeconds;
+        static int elapsedMiliSeconds;
         static double Q;
 
         public FrmMain()
@@ -34,7 +34,7 @@ namespace BasicFluidFlowCalculator
 
             btnSzamol.MouseDown += BtnSzamol_MouseDown;
             btnSzamol.MouseUp += BtnSzamol_MouseUp;
-            timer.Interval = 1000;
+            timer.Interval = 1;
        }
 
         private void BtnSzamol_MouseUp(object sender, MouseEventArgs e)
@@ -56,10 +56,10 @@ namespace BasicFluidFlowCalculator
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            elapsedSeconds++;
-            txtTime.Text = elapsedSeconds.ToString();
-            //Q alap esetben 1m3/s de nekunk az ezred resze kell a milisecond miatt azaz 0.001m3/ms ezt literbe atszamolva 1l/ms azaz 1000ml/ms
-            Q = (((Math.PI * pressureDifference * Math.Pow(pipeRadius, 4) / (8 * fluidViscosity * pipeLength)))*1000)*1000;
+            elapsedMiliSeconds++;
+            txtTime.Text = (elapsedMiliSeconds*10).ToString();
+            //Q alap esetben 1 m3/s de nekunk az ezred resze kell a milisecond miatt azaz 0.001m3/ms ezt literbe atszamolva 1l/ms azaz 1000ml/ms
+            Q = (Math.PI * pressureDifference * Math.Pow(pipeRadius, 4)) / (8 * fluidViscosity * pipeLength)*10000;
             cur += Q;
             txtOutput.Text = cur.ToString();
         }
