@@ -82,5 +82,11 @@
   <ItemGroup>
     <Content Include="research\Forras.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasicFluidFlowCalculatorCLI\BasicFluidFlowCalculatorCLI.csproj">
+      <Project>{d89d1f89-0018-455b-bb3c-6c54d155095a}</Project>
+      <Name>BasicFluidFlowCalculatorCLI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

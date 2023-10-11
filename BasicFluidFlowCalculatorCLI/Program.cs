@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Timers;
 
 namespace BasicFluidFlowCalculatorCLI
 {
@@ -38,12 +38,20 @@ namespace BasicFluidFlowCalculatorCLI
             //r a cső vagy vezeték sugara(méterben).
             //η a folyadék viszkozitása(pascal másodpercenként, más néven poiseuille).
             //L a cső vagy vezeték hossza(méterben).
+
+
+            Cola cola = new Cola();
             string[] args;
             do
             {
                 try
                 {
+
                     args = Console.ReadLine().Split(' ');
+                    if (args[0] == "ex")
+                    {
+                        break;
+                    }
                     var pipeLength = double.Parse(args[0]) / 100;
                     var pipeDiameter = double.Parse(args[1]); //d
                     var pipeRadius = (pipeDiameter / 100) / 2;
@@ -52,7 +60,7 @@ namespace BasicFluidFlowCalculatorCLI
 
                     var Q = (Math.PI * pressureDifference * Math.Pow(pipeRadius, 4)) / (8 * fluidViscosity * pipeLength);
                     var convertToMl = (Q * 1000) * 1000;
-                    Console.WriteLine($"Másodpercenként {convertToMl} ml\nEgy 250ml-es pohár {250/convertToMl:0.00} s alatt telik meg.");
+                    Console.WriteLine($"Másodpercenként {convertToMl:0.00} ml\nEgy 250ml-es pohár {250/convertToMl:0.00} s alatt telik meg.");
                 }
                 catch (Exception)
                 {
@@ -60,9 +68,7 @@ namespace BasicFluidFlowCalculatorCLI
                     Console.WriteLine("Hiba valahol!");
                     continue;
                 }
-            } while (!Console.ReadKey().Key.Equals(ConsoleKey.Escape));
-
-            Console.ReadKey(true);
+            } while (true);
         }
     }
 }
