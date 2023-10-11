@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BasicFluidFlowCalculatorCLI
 {
-    public class Fluid
+    public interface IFluid
     {
+        string Name { get;}
+        double Viscosity { get;}
     }
 }

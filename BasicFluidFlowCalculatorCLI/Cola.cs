@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace BasicFluidFlowCalculatorCLI
 {
-    internal class Cola : Fluid
+    public class Cola : IFluid
     {
-        public override double Viscosity { get => viscosity; }
-        public Cola()
-        {
-            viscosity = 0.00149;
-        }
+        public string Name { get => "Cola"; }
+        public double Viscosity { get => 0.00149; }
+
     }
 }

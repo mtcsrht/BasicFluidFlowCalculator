@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace BasicFluidFlowCalculatorCLI
 {
-    internal class Water : Fluid
-    { 
-        public override double Viscosity { get => viscosity; }
-        public Water()
-        {
-            viscosity = 0.001;
-        }
+    public class Water : IFluid
+    {
+        public string Name { get => "Water"; }
+        public double Viscosity { get => 0.001; }
     }
 }

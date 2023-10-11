@@ -7,22 +7,81 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BasicFluidFlowCalculatorCLI;
 
 namespace BasicFluidFlowCalculator
 {
+
     public partial class FrmMain : Form
     {
+        static List<IFluid> fluids = new List<IFluid>();
+        Timer timer = new Timer();
+        static double pipeLength;
+        static double pipeDiameter;
+        static double pipeRadius = (pipeDiameter / 100) / 2;
+        static double pressureDifference;
+        static double fluidViscosity;
+        static double cur;
+        static int elapsedMiliSeconds;
+        static double Q;
+
         public FrmMain()
         {
             InitializeComponent();
+            InitLista();
+            InitDropdown();
             btnSzamol.Click += BtnSzamol_Click;
+
+            btnSzamol.MouseDown += BtnSzamol_MouseDown;
+            btnSzamol.MouseUp += BtnSzamol_MouseUp;
+            timer.Interval = 1;
+       }
+
+        private void BtnSzamol_MouseUp(object sender, MouseEventArgs e)
+        {
+            timer.Stop();
+        }
+
+        private void BtnSzamol_MouseDown(object sender, MouseEventArgs e)
+        {
+            pipeLength = double.Parse(txtLength.Text) / 100;
+            pipeDiameter = double.Parse(txtbAtmero.Text.Replace('.', ','));
+            pipeRadius = (pipeDiameter / 100) / 2;
+            pressureDifference = double.Parse(txtPressure.Text);
+            fluidViscosity = fluids[cmbFluids.SelectedIndex].Viscosity;
+
+            timer.Start();
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            elapsedMiliSeconds++;
+            txtTime.Text = (elapsedMiliSeconds*10).ToString();
+            //Q alap esetben 1 m3/s de nekunk az ezred resze kell a milisecond miatt azaz 0.001m3/ms ezt literbe atszamolva 1l/ms azaz 1000ml/ms
+            Q = (Math.PI * pressureDifference * Math.Pow(pipeRadius, 4)) / (8 * fluidViscosity * pipeLength)*10000;
+            cur += Q;
+            txtOutput.Text = cur.ToString();
+        }
+
+        private void InitDropdown()
+        {
+            cmbFluids.DataSource = fluids;
+            cmbFluids.DisplayMember = "Name";
+        }
+
+        private void InitLista()
+        {
+            fluids.Add(new Cola());
+            fluids.Add(new Water());
         }
 
         private void BtnSzamol_Click(object sender, EventArgs e)
         {
+            /*
             var diameter = double.Parse(txtbAtmero.Text); //d
-            var velocity = double.Parse(txtVelocity.Text); //v
-            var time = double.Parse(txtElapsedTime.Text);//s
+            var velocity = double.Parse(txtLength.Text); //v
+            var time = double.Parse(txtPressure.Text);//s
             //r = d/2
             //A = pi*r^2
             //Q = A*v
@@ -43,6 +102,9 @@ namespace BasicFluidFlowCalculator
             //százalékos kiértékelés, hogy mekkora pontossággal sikerült kitölteni az egyes összetevőket
             //több koktél recept
             //viszkozitás és nyomáskülönbség presetek.
+            */
+
+
         }
     }
 }
