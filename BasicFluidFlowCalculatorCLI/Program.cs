@@ -30,6 +30,7 @@ namespace BasicFluidFlowCalculatorCLI
 
 
             Water water = new Water();
+            Cola cola = new Cola();
             //30cm-es cső 1.5-ös átmérő 0.8 Pa nyomáskülönbség víz viszkozitás
             //Q = (π * ΔP * r^4) / (8 * η * L)
             //Ahol:
@@ -38,6 +39,7 @@ namespace BasicFluidFlowCalculatorCLI
             //r a cső vagy vezeték sugara(méterben).
             //η a folyadék viszkozitása(pascal másodpercenként, más néven poiseuille).
             //L a cső vagy vezeték hossza(méterben).
+
             string[] args;
             do
             {
@@ -47,8 +49,8 @@ namespace BasicFluidFlowCalculatorCLI
                     var pipeLength = double.Parse(args[0]) / 100;
                     var pipeDiameter = double.Parse(args[1]); //d
                     var pipeRadius = (pipeDiameter / 100) / 2;
-                    var pressureDifference = double.Parse(args[2]); //ΔPa
-                    var fluidViscosity = water.Viscosity;
+                    var pressureDifference = double.Parse(args[2]); //ΔP
+                    var fluidViscosity = cola.Viscosity;
 
                     var Q = (Math.PI * pressureDifference * Math.Pow(pipeRadius, 4)) / (8 * fluidViscosity * pipeLength);
                     var convertToMl = (Q * 1000) * 1000;
@@ -61,7 +63,7 @@ namespace BasicFluidFlowCalculatorCLI
                     continue;
                 }
             } while (!Console.ReadKey().Key.Equals(ConsoleKey.Escape));
-
+            //Interface
             Console.ReadKey(true);
         }
     }

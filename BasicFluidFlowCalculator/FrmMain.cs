@@ -38,6 +38,7 @@ namespace BasicFluidFlowCalculator
             txtOutput.Text = convertingtoDl.ToString();
             //android 8.1 oreo
             //unity gitignore
+
             //Mixer alkalmazás
             //százalékos kiértékelés, hogy mekkora pontossággal sikerült kitölteni az egyes összetevőket
             //több koktél recept
